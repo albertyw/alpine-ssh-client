@@ -6,7 +6,7 @@ This repository was originally forked from https://github.com/kroniak/alpine-ssh
 
 A little docker image based on alpine with ssh-client and bash
 
-## using from Drone CI
+## Using from Drone CI
 
 ```yml
   - name: Deploy
@@ -19,6 +19,16 @@ A little docker image based on alpine with ssh-client and bash
         path: /root/ssh/id_ed25519
 ```
 
-## using from docker
+## Using from docker
 
 `docker run -it --rm albertyw/ssh-client bash`
+
+## Supported platforms
+
+ - linux/386
+ - linux/amd64
+ - linux/arm/v6
+ - linux/arm/v7
+ - linux/arm64/v8
+ - linux/ppc64le
+ - linux/s390x
