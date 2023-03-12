@@ -1,5 +1,7 @@
 # alpine-ssh-client
 
+[![Docker Image CI](https://github.com/albertyw/alpine-ssh-client/actions/workflows/docker-image.yml/badge.svg)](https://github.com/albertyw/alpine-ssh-client/actions/workflows/docker-image.yml)
+
 This repository was originally forked from https://github.com/kroniak/alpine-ssh-client
 
 A little docker image based on alpine with ssh-client and bash
