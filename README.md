@@ -1,5 +1,7 @@
 # alpine-ssh-client
 
+This repository is forked from https://github.com/kroniak/alpine-ssh-client
+
 A little docker image based on alpine with ssh-client and bash
 
 ## using from GitLab CI
