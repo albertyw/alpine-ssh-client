@@ -7,7 +7,7 @@ A little docker image based on alpine with ssh-client and bash
 ```yml
 deploy_staging:
   stage: deploy
-  image: kroniak/ssh-client
+  image: albertyw/ssh-client
   environment:
     name: staging
     url: https://sample-app.net
@@ -28,7 +28,7 @@ deploy_staging:
 
 ## using from docker
 
-`docker run -it --rm kroniak/ssh-client bash`
+`docker run -it --rm albertyw/ssh-client bash`
 
 ## supported tags and respective Dockerfile links
 
