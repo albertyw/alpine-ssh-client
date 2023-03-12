@@ -1,31 +1,20 @@
 # alpine-ssh-client
 
-This repository is forked from https://github.com/kroniak/alpine-ssh-client
+This repository was originally forked from https://github.com/kroniak/alpine-ssh-client
 
 A little docker image based on alpine with ssh-client and bash
 
-## using from GitLab CI
+## using from Drone CI
 
 ```yml
-deploy_staging:
-  stage: deploy
-  image: albertyw/ssh-client
-  environment:
-    name: staging
-    url: https://sample-app.net
-  script:
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-    - echo "$SSH_PRIVATE_KEY_STAGING" > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
-    - scp -r deploy/app_staging/. $DEPLOY_STAGING_SSH_HOST:~/app
-    - scp -r src/project/conf/. $DEPLOY_STAGING_SSH_HOST:~/app/conf
-    - ssh $DEPLOY_STAGING_SSH_HOST 'chmod 700 ~/app/app.sh'
-    - ssh $DEPLOY_STAGING_SSH_HOST 'cd ~/app && ./app.sh --file docker-compose-staging.yml up'
-    - ssh $DEPLOY_STAGING_SSH_HOST 'cd ~/app && ./app.sh --file docker-compose-staging.yml update'
-  only:
-    - dev
+  - name: Deploy
+    image: albertyw/ssh-client:4.0.0
+    commands:
+      - ssh-keyscan example.com >> /root/.ssh/known_hosts
+      - ssh username@example.com -i /root/ssh/id_ed25519 uptime
+    volumes:
+      - name: ssh_key
+        path: /root/ssh/id_ed25519
 ```
 
 ## using from docker
