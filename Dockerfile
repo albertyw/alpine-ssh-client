@@ -1,4 +1,4 @@
-FROM alpine:3.20.1
+FROM alpine:3.20.3
 RUN apk add --update --no-cache \
   openssh-client \
   ca-certificates \
